@@ -3,7 +3,6 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
-  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <!-- =====  BASIC PAGE NEEDS  ===== -->
   <title>Huzaifa Shakeel</title>
@@ -38,7 +37,6 @@
   <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   
-  
 </head>
 <body id="home, style= background-color: #141416;">
   <div class="wrapper", style="background-color: #141416;">
@@ -53,9 +51,9 @@
             <nav id="menu" class="collapse">
               <!-- Navigation Menu -->
               <ul class="nav">
-                <li class="active"> <a href="index.html", style="color: black;">Home</a></li>
+                <li class="active"> <a href="index.html", style="color:black ;">Home</a></li>
                 <li> <a href="about.html"  style="color: black;">About</a></li>
-                <li> <a href="tracking.html"  style="color: #ffc107;;">Tracking</a></li>
+                <li> <a href="tracking.html"  style="color:  #ffc107;">Tracking</a></li>
                 <li> <a href="contact.html"  style="color: black;">Contact</a></li>
               </ul>
               <!--End Navigation Menu -->
@@ -65,6 +63,7 @@
       </div>
     </header>
     <!-- =====  HEADER END  ===== -->
+    
     <div class="main-banner" style="background-image: url('jobado/layout/images/d.jpg'); padding: 225px 0px;">
       <div class="container">
             <div class="caption header-text">
@@ -81,18 +80,19 @@
         </div>
       </div>
     </div>
+    <!-- =====  ABOUT END  ===== -->
+
 
    
     <div class="caption header-text" style="padding-top: 00px; padding-bottom: 20px;">
-        <div id="shipmentCardContainer" style="display: none;">
-          <!-- Your card content goes here -->
-          <div class="shipmentCard">
-            <!-- Card content will be dynamically updated here -->
-          </div>
-      
-    </div>
+      <div id="shipmentCardContainer" style="display: none;">
+        <!-- Your card content goes here -->
+        <div class="shipmentCard">
+          <!-- Card content will be dynamically updated here -->
+        </div>
+      </div>
+  </div>
 
-   
    
 <footer class="new_footer_area bg_color">
   <div class="new_footer_top">
@@ -155,9 +155,9 @@
       </div>
   </div>
 </footer>
-
-
-  <script type="module">
+   
+  
+<script type="module">
     
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getFirestore, collection, getDoc,doc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -205,17 +205,10 @@
     return formattedDate;
   };
 
-      // console.log(shipmentDoc.id, ' => ', shipmentDoc.data());
       const cardContainer = document.getElementById('shipmentCardContainer');
 
    
     
-      // const cardContent = `
-      //   <main class="main-content">
-      //     <h1>Shipment ID #${shipmentDoc.data().orderID}<br>Status - ${shipmentDoc.data().status === 2 ? 'Delivered' : shipmentDoc.data().status === 0 ? 'Labeled':  shipmentDoc.data().status === 1 ? 'Shipped':   shipmentDoc.data().status === 3 ? 'Out for delivery':'In Transit'} </h1>
-      //     <p>${shipmentDoc.data().description}<br><br>Package Dimensions: ${shipmentDoc.data().packageDimensions}<br>Status Updated At: ${shipmentDoc.data().updatedat}</p>
-      //   </main>
-      // `;
 
       const cardContent = `
       <div class="main-banner" style="padding-top:0%">
@@ -257,6 +250,25 @@
   }
 });
   </script>
-
-</body>  
+  <script src="jobado/layout/js/jQuery_v3.1.1.min.js"></script>
+  <script src="jobado/layout/js/owl.carousel.min.js"></script>
+  <script src="jobado/layout/js/bootstrap.min.js"></script>
+  <script src="jobado/layout/js/isotope.pkgd.min.js"></script>
+  <script src="jobado/layout/js/letters-type.js"></script>
+  <script src="jobado/layout/js/menu.js"></script>
+  <script src="jobado/layout/js/custom.js"></script>
+  <script src="jobado/layout/js/circle-progress.js"></script>
+  <script src="jobado/layout/js/circle-progress-examples.js"></script>
+  <script src="jobado/layout/js/map.js"></script>
+  <script src="jobado/layout/js/parallax.js"></script>
+  <script src="jobado/layout/js/wow.js"></script>
+  <script src="jobado/layout/js/mail.js"></script>
+  <script src="jobado/layout/js/mouse_position.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <!-- =====  SCRIPT END  ===== -->
+  <script src="assets/js/main.js"></script>
 </html>
