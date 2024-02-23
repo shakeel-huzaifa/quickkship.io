@@ -75,11 +75,7 @@
             </div>
               <a class="custom-btn custom-btns light mtb_30 wow fadeInUp" data-wow-delay="0.2s" href="#about" id="scrollToAbout"><span>Read more</span></a>
           </div>
-       
-
-          <!-- Your other HTML content -->
-      
-          <!-- JavaScript code for smooth scrolling -->
+         
           <script>
               document.getElementById("scrollToAbout").addEventListener("click", function (event) {
                   event.preventDefault(); // Prevent the default behavior of jumping to the section
@@ -113,6 +109,11 @@
                         <input type="text" placeholder="Tracking ID" id="searchText" name="searchKeyword" />
                         <button type="submit" style="background-color: #ffc107;">Track Now</button>
                     </form>
+                    <script>
+                      document.getElementById("searchText").addEventListener("input", function() {
+                          this.value = this.value.replace(/\s/g, "");
+                      });
+                  </script>
                     </div>
                   </div>
                    
