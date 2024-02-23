@@ -132,7 +132,7 @@
             shipmentDoc.data().status === 2
               ? 'Delivered'
               : shipmentDoc.data().status === 0
-              ? `Labele Created at ${formatDate(shipmentDoc.data().updatedat)}`
+              ? `Label Created at ${formatDate(shipmentDoc.data().updatedat)}`
               : shipmentDoc.data().status === 1
               ? `Shipped On truck ready for Delivery ${formatDate(shipmentDoc.data().updatedat)}`
               : shipmentDoc.data().status === 3
