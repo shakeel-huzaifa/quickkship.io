@@ -141,9 +141,13 @@
           }</h2>
           <p style="font-size:large">Description : ${shipmentDoc.data().description} <br><br>Package Dimension : ${
             shipmentDoc.data().packageDimensions
-          }<br> Status update at: ${formatDate(shipmentDoc.data().updatedat)} <br><br> Expected Delivery at: ${expectedDeliveryDate(
-            shipmentDoc.data().updatedat
-          )} </p>
+          }<br> Status update at: ${formatDate(shipmentDoc.data().updatedat)} <br><br>   ${ shipmentDoc.data().status === 1 ||shipmentDoc.data().status === 3 ? 
+            `Expected Delivery at:  ${formatDate(
+            shipmentDoc.data().updatedat)}
+          `:shipmentDoc.data().status === 0 ?`Expected Delivery at:  ${expectedDeliveryDate(
+            shipmentDoc.data().updatedat)}
+          `:""
+          } </p>
         </div>
         <div class="col-md-12">
             <h2 class="about-heading mb_40 wow fadeInUp" data-wow-delay="0.2s" style="font-size: x-large; padding-bottom: 0px; line-height: 70px;">DOWNLOAD OUR QUICKKSHIP APPS FOR REAL TIME TRACKING </h2>
