@@ -92,6 +92,31 @@
     const formattedDate = new Date(timestamp).toLocaleString('en-US', options);
     return formattedDate;
   };
+  
+  const expectedDeliveryDate = (timestamp) => {
+    const options = { 
+        day: 'numeric', 
+        month: 'numeric', 
+        year: 'numeric', 
+        hour: 'numeric', 
+        minute: 'numeric', 
+        hour12: true 
+    };
+
+    // Convert timestamp to Date object
+    const originalDate = new Date(timestamp);
+
+    // Add 3 days to the original date
+    const updatedDate = new Date(originalDate);
+    updatedDate.setDate(originalDate.getDate() + 3);
+
+    // Format the updated date
+    const formattedDate = updatedDate.toLocaleString('en-US', options);
+    return formattedDate;
+};
+
+
+
 
       const cardContainer = document.getElementById('shipmentCardContainer');
 
@@ -99,19 +124,33 @@
     
 
       const cardContent = `
-      <div class="main-banner" style="padding-top:0%">
-      <div class="container"  style="padding-top:0%">
-            <div class="caption header-text">
-              <div class="custom-box" style="background-color: transparent; margin-left: -3%;">
-              <h2 class="about-heading mb_40 wow fadeInUp" style="font-size: xx-large; padding-bottom: 0px;  line-height: 70px;" data-wow-delay="0.2s">Tracking ID - ${shipmentDoc.data().orderID}</h2><br>
-              <h2 class="about-heading mb_40 wow fadeInUp" style="font-size: xx-large ; line-height: 70px;" data-wow-delay="0.2s">Status - ${shipmentDoc.data().status === 2 ? 'Delivered' : shipmentDoc.data().status === 0 ? 'Labeled':  shipmentDoc.data().status === 1 ? 'Shipped':   shipmentDoc.data().status === 3 ? 'Out for delivery':'In Transit'}</h2>
-              <p>Description : ${shipmentDoc.data().description} <br><br>Package Dimension : ${shipmentDoc.data().packageDimensions}<br> Status update at: ${formatDate(shipmentDoc.data().updatedat)} </p>
-            </div>
-         
+  <div class="main-banner" style="padding-top:0%">
+    <div class="container" style="padding-top:0%">
+      <div class="caption header-text">
+        <div class="custom-box" style="background-color: transparent; margin-left: -3%;">
+          <h2 class="about-heading mb_40 wow fadeInUp" style="font-size: x-large; padding-bottom: 0px; line-height: 70px;" data-wow-delay="0.2s">Tracking ID - ${shipmentDoc.data().orderID}</h2><br>
+          <h2 class="about-heading mb_40 wow fadeInUp" style="font-size: x-large; line-height: 40px;" data-wow-delay="0.2s">Status - ${
+            shipmentDoc.data().status === 2
+              ? 'Delivered'
+              : shipmentDoc.data().status === 0
+              ? `Labele Created at ${formatDate(shipmentDoc.data().updatedat)}`
+              : shipmentDoc.data().status === 1
+              ? `Shipped On truck ready for Delivery ${formatDate(shipmentDoc.data().updatedat)}`
+              : shipmentDoc.data().status === 3
+              ? 'Out for delivery'
+              : 'In Transit'
+          }</h2>
+          <p style="font-size:large">Description : ${shipmentDoc.data().description} <br><br>Package Dimension : ${
+            shipmentDoc.data().packageDimensions
+          }<br> Status update at: ${formatDate(shipmentDoc.data().updatedat)} <br><br> Expected Delivery at: ${expectedDeliveryDate(
+            shipmentDoc.data().updatedat
+          )} </p>
         </div>
       </div>
     </div>
-      `;
+  </div>
+`;
+
 
 // Show the card container and update its content
      cardContainer.style.display = 'block';
